@@ -1,4 +1,6 @@
 (function () {
+  var BASE = document.documentElement.getAttribute("data-base") || "";
+
   var TOOLS = [
     {
       icon: "\u{1F54A}\uFE0F",
@@ -6,7 +8,7 @@
       title: "Freedom Tracker",
       tagline: "Measure your wealth in time, not just currency.",
       description: "Know how many days of freedom your savings actually buy, and when you will be free for real.",
-      path: "freedom-tracker.html",
+      path: "freedom-tracker/",
       cta: "Open the tool"
     },
     {
@@ -15,7 +17,7 @@
       title: "Journal",
       tagline: "A quiet space to write and reflect.",
       description: "Private drafts for daily thoughts, reflections and clarity. Stays on this device until you clear it.",
-      path: "journal.html",
+      path: "journal/",
       cta: "Open the journal"
     },
     {
@@ -24,7 +26,7 @@
       title: "Daily Read",
       tagline: "A little learning every day. One idea at a time.",
       description: "One of four gentle reminders for quieter days. Spot the disguised task, glide, eat in peace, jog.",
-      path: "daily-read.html",
+      path: "daily-read/",
       cta: "Read today"
     },
     {
@@ -33,10 +35,14 @@
       title: "Glide Check",
       tagline: "Is it a task, or a disguise?",
       description: "Run your to-do through a gentle check before it eats your day. Ask whether it moves you toward what matters.",
-      path: "glide-check.html",
+      path: "glide-check/",
       cta: "Run the check"
     }
   ];
+
+  function href(path) {
+    return BASE + path;
+  }
 
   function renderHeader() {
     var header = document.getElementById("site-header");
@@ -45,13 +51,25 @@
     }
     header.innerHTML =
       '<div class="container header-inner">' +
-      '<a class="brand" href="index.html">Primebase</a>' +
+      '<a class="brand" href="' +
+      href("index.html") +
+      '">Primebase</a>' +
       '<nav class="site-nav">' +
-      '<a href="index.html">Tools</a>' +
-      '<a href="freedom-tracker.html">Freedom Tracker</a>' +
-      '<a href="journal.html">Journal</a>' +
-      '<a href="daily-read.html">Daily Read</a>' +
-      '<a href="glide-check.html">Glide Check</a>' +
+      '<a href="' +
+      href("index.html") +
+      '">Tools</a>' +
+      '<a href="' +
+      href("freedom-tracker/") +
+      '">Freedom Tracker</a>' +
+      '<a href="' +
+      href("journal/") +
+      '">Journal</a>' +
+      '<a href="' +
+      href("daily-read/") +
+      '">Daily Read</a>' +
+      '<a href="' +
+      href("glide-check/") +
+      '">Glide Check</a>' +
       "</nav>" +
       "</div>";
   }
@@ -76,7 +94,7 @@
     grid.innerHTML = TOOLS.map(function (t) {
       return (
         '<a class="tool-card" href="' +
-        t.path +
+        href(t.path) +
         '">' +
         '<div class="tool-card-top">' +
         '<span class="tool-icon">' +
