@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glide Check &mdash; Primebase Tools</title>
+  <meta name="description" content="Is it a task, or a disguise? Run a task through a gentle focus check before it eats your day.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container narrow">
+    <a class="back-link" href="index.html">&larr; All tools</a>
+
+    <header class="page-head">
+      <p class="eyebrow">Focus</p>
+      <h1>Glide Check</h1>
+      <p class="lede">Is it a task, or a disguise? Before a task eats your day, run it through a gentle check.</p>
+    </header>
+
+    <section class="panel">
+      <h2>The check</h2>
+      <div class="field">
+        <span>What task is on your mind?</span>
+        <textarea id="gt-task" placeholder="e.g. Replying to that long email thread before doing the thing you actually planned."></textarea>
+      </div>
+      <div class="check-grid">
+        <div class="field">
+          <span>Does it move you closer to a goal you care about?</span>
+          <select id="gt-goal">
+            <option value="">Choose&hellip;</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="unsure">Not sure</option>
+          </select>
+        </div>
+        <div class="field">
+          <span>How urgent does it feel?</span>
+          <select id="gt-urgent">
+            <option value="">Choose&hellip;</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <span>How much time could it steal? (minutes)</span>
+        <input id="gt-time" type="number" min="0" placeholder="e.g. 30">
+      </div>
+      <button class="btn" id="gt-run" type="button">Run the check</button>
+    </section>
+
+    <section class="panel result" id="gt-result" hidden>
+      <h2>Your glide verdict</h2>
+      <p class="gt-verdict" id="gt-verdict"></p>
+      <p id="gt-verdict-body"></p>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/app.js"></script>
+  <script src="assets/glide.js"></script>
+</body>
+</html>

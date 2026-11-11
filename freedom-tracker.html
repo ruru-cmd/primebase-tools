@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freedom Tracker &mdash; Primebase Tools</title>
+  <meta name="description" content="Measure your wealth in time, not just currency. Know how many days of freedom your savings actually buy.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container narrow">
+    <a class="back-link" href="index.html">&larr; All tools</a>
+
+    <header class="page-head">
+      <p class="eyebrow">Finance</p>
+      <h1>Freedom Tracker</h1>
+      <p class="lede">Measure your wealth in <em>time</em>, not just currency. Enter your monthly living expenses and your current savings. The tool tells you how many days of freedom you are actually sitting on.</p>
+    </header>
+
+    <div class="tool-layout">
+      <section class="panel">
+        <h2>The inputs</h2>
+        <div class="field">
+          <span>Monthly living expenses</span>
+          <input id="ft-expenses" type="number" min="0" step="100" placeholder="e.g. 10000">
+        </div>
+        <div class="field">
+          <span>Current savings / liquid wealth</span>
+          <input id="ft-savings" type="number" min="0" step="100" placeholder="e.g. 50000">
+        </div>
+        <button class="btn" id="ft-run" type="button">Calculate freedom</button>
+      </section>
+
+      <section class="result" id="ft-result">
+        <div class="result-days">
+          <span class="num" id="ft-days">0</span>
+          <span class="lbl">Days of Freedom</span>
+        </div>
+        <ul class="result-rows">
+          <li><span>Monthly living expenses</span><span id="ft-row-expenses">0</span></li>
+          <li><span>Savings / liquid wealth</span><span id="ft-row-savings">0</span></li>
+          <li><span>Months of freedom</span><span id="ft-row-months">0</span></li>
+          <li><span>Est. freedom date</span><span id="ft-row-date">&mdash;</span></li>
+        </ul>
+        <p class="result-note" id="ft-note">Every bit of discipline today adds more freedom to your future.</p>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/app.js"></script>
+  <script src="assets/ft.js"></script>
+</body>
+</html>
