@@ -29,7 +29,9 @@
       "</svg>" +
       "Primebase" +
       "</a>" +
-      '<span class="mast-note">Tools</span>' +
+      '<a class="mast-note" href="' +
+      href("index.html#tools-grid") +
+      '">Tools</a>' +
       "</div>";
   }
 
