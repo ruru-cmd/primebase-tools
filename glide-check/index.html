@@ -4,28 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glide Check &mdash; Primebase Tools</title>
-  <meta name="description" content="Is it a task, or a disguise? Run a task through a gentle focus check before it eats your day.">
+  <meta name="description" content="Is it a task, or a disguise? Run a task through a gentle focus check.">
+  <link rel="icon" href="../assets/img/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
   <div id="site-header"></div>
 
-  <main class="container narrow">
-    <a class="back-link" href="../index.html">&larr; All tools</a>
+  <main>
+    <div class="wrap">
+      <a class="back" href="../index.html">&larr; Tools</a>
 
-    <header class="page-head">
-      <p class="eyebrow">Focus</p>
-      <h1>Glide Check</h1>
-      <p class="lede">Is it a task, or a disguise? Before a task eats your day, run it through a gentle check.</p>
-    </header>
+      <header class="page">
+        <img class="thumb" src="../assets/img/glide.jpg" alt="" width="768" height="576">
+        <div>
+          <p class="eyebrow">Focus</p>
+          <h1>Glide Check</h1>
+          <p class="lede">Is it a task, or a disguise?</p>
+        </div>
+      </header>
 
-    <section class="panel">
-      <h2>The check</h2>
-      <div class="field">
-        <span>What task is on your mind?</span>
-        <textarea id="gt-task" placeholder="e.g. Replying to that long email thread before doing the thing you actually planned."></textarea>
-      </div>
-      <div class="check-grid">
+      <section>
+        <div class="field">
+          <span>What task is on your mind?</span>
+          <textarea class="short" id="gt-task" placeholder="A task that has been nagging you&hellip;"></textarea>
+        </div>
         <div class="field">
           <span>Does it move you closer to a goal you care about?</span>
           <select id="gt-goal">
@@ -44,19 +50,11 @@
             <option value="high">High</option>
           </select>
         </div>
-      </div>
-      <div class="field">
-        <span>How much time could it steal? (minutes)</span>
-        <input id="gt-time" type="number" min="0" placeholder="e.g. 30">
-      </div>
-      <button class="btn" id="gt-run" type="button">Run the check</button>
-    </section>
+        <button class="btn" id="gt-run" type="button">Run the check</button>
 
-    <section class="panel result" id="gt-result" hidden>
-      <h2>Your glide verdict</h2>
-      <p class="gt-verdict" id="gt-verdict"></p>
-      <p id="gt-verdict-body"></p>
-    </section>
+        <section class="verdict" id="gt-result" aria-live="polite" hidden></section>
+      </section>
+    </div>
   </main>
 
   <div id="site-footer"></div>

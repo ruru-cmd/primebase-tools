@@ -2,42 +2,10 @@
   var BASE = document.documentElement.getAttribute("data-base") || "";
 
   var TOOLS = [
-    {
-      icon: "\u{1F54A}\uFE0F",
-      tag: "Finance",
-      title: "Freedom Tracker",
-      tagline: "Measure your wealth in time, not just currency.",
-      description: "Know how many days of freedom your savings actually buy, and when you will be free for real.",
-      path: "freedom-tracker/",
-      cta: "Open the tool"
-    },
-    {
-      icon: "\u270D\uFE0F",
-      tag: "Reflection",
-      title: "Journal",
-      tagline: "A quiet space to write and reflect.",
-      description: "Private drafts for daily thoughts, reflections and clarity. Stays on this device until you clear it.",
-      path: "journal/",
-      cta: "Open the journal"
-    },
-    {
-      icon: "\u{1F32B}\uFE0F",
-      tag: "Mind",
-      title: "Daily Read",
-      tagline: "A little learning every day. One idea at a time.",
-      description: "One of four gentle reminders for quieter days. Spot the disguised task, glide, eat in peace, jog.",
-      path: "daily-read/",
-      cta: "Read today"
-    },
-    {
-      icon: "\u{1F50D}",
-      tag: "Focus",
-      title: "Glide Check",
-      tagline: "Is it a task, or a disguise?",
-      description: "Run your to-do through a gentle check before it eats your day. Ask whether it moves you toward what matters.",
-      path: "glide-check/",
-      cta: "Run the check"
-    }
+    { title: "Freedom Tracker", line: "Measure wealth in time.", img: "assets/img/freedom.jpg", path: "freedom-tracker/" },
+    { title: "Journal", line: "A quiet page, kept private.", img: "assets/img/journal.jpg", path: "journal/" },
+    { title: "Daily Read", line: "One reminder a day.", img: "assets/img/read.jpg", path: "daily-read/" },
+    { title: "Glide Check", line: "Is it a task, or a disguise?", img: "assets/img/glide.jpg", path: "glide-check/" }
   ];
 
   function href(path) {
@@ -49,28 +17,19 @@
     if (!header) {
       return;
     }
+    header.className = "masthead";
     header.innerHTML =
-      '<div class="container header-inner">' +
+      '<div class="wrap mast-inner">' +
       '<a class="brand" href="' +
       href("index.html") +
-      '">Primebase</a>' +
-      '<nav class="site-nav">' +
-      '<a href="' +
-      href("index.html") +
-      '">Tools</a>' +
-      '<a href="' +
-      href("freedom-tracker/") +
-      '">Freedom Tracker</a>' +
-      '<a href="' +
-      href("journal/") +
-      '">Journal</a>' +
-      '<a href="' +
-      href("daily-read/") +
-      '">Daily Read</a>' +
-      '<a href="' +
-      href("glide-check/") +
-      '">Glide Check</a>' +
-      "</nav>" +
+      '">' +
+      '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+      '<circle cx="12" cy="10.5" r="6" fill="#a6533a"/>' +
+      '<path d="M2.5 18.5h19" stroke="#17150f" stroke-width="1.6" stroke-linecap="round"/>' +
+      "</svg>" +
+      "Primebase" +
+      "</a>" +
+      '<span class="mast-note">Tools</span>' +
       "</div>";
   }
 
@@ -79,10 +38,11 @@
     if (!footer) {
       return;
     }
+    footer.className = "footer";
     footer.innerHTML =
-      '<div class="container footer-inner">' +
-      "<p>Primebase \u2014 a self reflection place.</p>" +
-      '<p><a href="https://www.primebase.in/">www.primebase.in</a></p>' +
+      '<div class="wrap">' +
+      "<span>Primebase \u2014 a self reflection place.</span>" +
+      '<a href="https://www.primebase.in/">www.primebase.in \u2197</a>' +
       "</div>";
   }
 
@@ -93,29 +53,17 @@
     }
     grid.innerHTML = TOOLS.map(function (t) {
       return (
-        '<a class="tool-card" href="' +
+        '<a class="card" href="' +
         href(t.path) +
         '">' +
-        '<div class="tool-card-top">' +
-        '<span class="tool-icon">' +
-        t.icon +
-        "</span>" +
-        '<span class="tool-tag">' +
-        t.tag +
-        "</span>" +
-        "</div>" +
-        "<h3>" +
+        '<span class="card-art"><img src="' +
+        href(t.img) +
+        '" alt="" width="768" height="576" loading="lazy"></span>' +
+        '<span class="card-text"><span class="card-title">' +
         t.title +
-        "</h3>" +
-        '<p class="tool-tagline">' +
-        t.tagline +
-        "</p>" +
-        '<p class="tool-desc">' +
-        t.description +
-        "</p>" +
-        '<span class="tool-cta">' +
-        t.cta +
-        " \u2192</span>" +
+        '</span><span class="card-line">' +
+        t.line +
+        "</span></span>" +
         "</a>"
       );
     }).join("");

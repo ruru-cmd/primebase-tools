@@ -4,28 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Journal &mdash; Primebase Tools</title>
-  <meta name="description" content="A quiet space for daily thoughts, reflections and clarity. Private, stays on your device.">
+  <meta name="description" content="A quiet page, kept private on this device.">
+  <link rel="icon" href="../assets/img/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
   <div id="site-header"></div>
 
-  <main class="container narrow">
-    <a class="back-link" href="../index.html">&larr; All tools</a>
+  <main>
+    <div class="wrap">
+      <a class="back" href="../index.html">&larr; Tools</a>
 
-    <header class="page-head">
-      <p class="eyebrow">Reflection</p>
-      <h1>Journal</h1>
-      <p class="lede">A quiet space for daily thoughts, reflections and clarity. Drafts stay only in this browser until you clear the page.</p>
-    </header>
+      <header class="page">
+        <img class="thumb" src="../assets/img/journal.jpg" alt="" width="768" height="576">
+        <div>
+          <p class="eyebrow">Reflection</p>
+          <h1>Journal</h1>
+          <p class="lede">A quiet page, kept private on this device.</p>
+        </div>
+      </header>
 
-    <div class="panel journal-panel">
-      <textarea id="jr-text" placeholder="Start anywhere. A thought, a fear, a small win, a prayer. There is nothing to format here."></textarea>
-      <div class="journal-meta">
-        <span class="status"><span class="dot idle" id="jr-dot"></span><span id="jr-status">Nothing written yet</span></span>
-        <span class="counts" id="jr-counts">0 words &middot; 0 characters</span>
-        <button class="btn-ghost" id="jr-clear" type="button">Clear page</button>
-      </div>
+      <section>
+        <label class="field" for="jr-text" style="margin:0">
+          <span>Today</span>
+        </label>
+        <textarea id="jr-text" placeholder="Start anywhere."></textarea>
+        <div class="meta">
+          <span id="jr-counts">0 words</span>
+          <span><span id="jr-status"></span> <button class="linkish" id="jr-clear" type="button">Clear</button></span>
+        </div>
+      </section>
     </div>
   </main>
 

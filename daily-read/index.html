@@ -4,31 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daily Read &mdash; Primebase Tools</title>
-  <meta name="description" content="A little learning every day. One of four gentle reminders for quieter days.">
+  <meta name="description" content="One reminder a day. Four gentle reminders for quieter days.">
+  <link rel="icon" href="../assets/img/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
   <div id="site-header"></div>
 
-  <main class="container narrow">
-    <a class="back-link" href="../index.html">&larr; All tools</a>
+  <main>
+    <div class="wrap">
+      <a class="back" href="../index.html">&larr; Tools</a>
 
-    <header class="page-head">
-      <p class="eyebrow">Mind</p>
-      <h1>Daily Read</h1>
-      <p class="lede">A little learning every day. One idea at a time. Today&rsquo;s read is drawn from the four gentle reminders for quieter days.</p>
-    </header>
+      <header class="page">
+        <img class="thumb" src="../assets/img/read.jpg" alt="" width="768" height="576">
+        <div>
+          <p class="eyebrow">Mind</p>
+          <h1>Daily Read</h1>
+          <p class="lede">One reminder a day.</p>
+        </div>
+      </header>
 
-    <section class="panel today-panel">
-      <p class="eyebrow">Today&rsquo;s read &middot; <span id="dr-date"></span></p>
-      <h2 id="dr-title">Just Glide</h2>
-      <p class="lede" id="dr-lede"></p>
-      <div class="today-body" id="dr-body"></div>
-      <a class="read-more" href="https://www.primebase.in/p/daily-read.html" target="_blank" rel="noopener">Read the full post on Primebase &rarr;</a>
-    </section>
+      <section class="read">
+        <p class="read-date" id="dr-date"></p>
+        <h2 id="dr-title"></h2>
+        <div id="dr-body"></div>
+        <a class="more" href="https://www.primebase.in/p/daily-read.html" target="_blank" rel="noopener">Full post &nearr;</a>
+      </section>
 
-    <h2 class="subhead">All four reminders</h2>
-    <div class="today-grid" id="dr-list"></div>
+      <nav class="tabs" id="dr-tabs" aria-label="All reminders"></nav>
+    </div>
   </main>
 
   <div id="site-footer"></div>

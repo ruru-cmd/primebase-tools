@@ -1,64 +1,49 @@
 (function () {
-  var textarea = document.getElementById("jr-text");
+  var ta = document.getElementById("jr-text");
   var statusEl = document.getElementById("jr-status");
-  var dotEl = document.getElementById("jr-dot");
   var countsEl = document.getElementById("jr-counts");
   var clearBtn = document.getElementById("jr-clear");
-
   var KEY = "primebase.journal.draft";
   var timer = null;
 
-  function wordCount(text) {
+  function words(text) {
     var t = text.trim();
-    if (!t) {
-      return 0;
-    }
-    return t.split(/\s+/).length;
+    return t ? t.split(/\s+/).length : 0;
   }
 
-  function showSaved() {
-    var now = new Date();
-    var time = now.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
-    if (dotEl) {
-      dotEl.className = "dot";
-    }
-    if (statusEl) {
-      statusEl.textContent = "Saved \u00B7 " + time;
+  function count() {
+    if (countsEl) {
+      countsEl.textContent = words(ta.value) + " words";
     }
   }
 
   function save() {
     try {
-      localStorage.setItem(KEY, textarea.value);
-      showSaved();
+      localStorage.setItem(KEY, ta.value);
     } catch (e) {
       if (statusEl) {
-        statusEl.textContent = "This browser will not save drafts";
+        statusEl.textContent = "not saved";
       }
-      if (dotEl) {
-        dotEl.className = "dot idle";
-      }
-    }
-  }
-
-  function updateCounts() {
-    if (!countsEl) {
       return;
     }
-    countsEl.textContent =
-      wordCount(textarea.value) + " words \u00B7 " + textarea.value.length + " characters";
+    if (statusEl) {
+      statusEl.textContent = "saved";
+    }
   }
 
-  textarea.addEventListener("input", function () {
+  ta.addEventListener("input", function () {
     clearTimeout(timer);
     timer = setTimeout(save, 400);
-    updateCounts();
+    count();
+    if (statusEl) {
+      statusEl.textContent = "\u2026";
+    }
   });
 
   window.addEventListener("beforeunload", function () {
     clearTimeout(timer);
     try {
-      localStorage.setItem(KEY, textarea.value);
+      localStorage.setItem(KEY, ta.value);
     } catch (e) {
       return;
     }
@@ -66,27 +51,20 @@
 
   if (clearBtn) {
     clearBtn.addEventListener("click", function () {
-      textarea.value = "";
+      ta.value = "";
       clearTimeout(timer);
       save();
-      updateCounts();
+      count();
     });
   }
 
-  var savedValue = "";
   try {
-    savedValue = localStorage.getItem(KEY) || "";
+    ta.value = localStorage.getItem(KEY) || "";
   } catch (e) {
-    savedValue = "";
+    ta.value = "";
   }
-  textarea.value = savedValue;
-  updateCounts();
-  if (savedValue) {
-    showSaved();
-  } else if (statusEl) {
-    statusEl.textContent = "Nothing written yet";
-    if (dotEl) {
-      dotEl.className = "dot idle";
-    }
+  count();
+  if (statusEl) {
+    statusEl.textContent = ta.value ? "saved" : "";
   }
 })();

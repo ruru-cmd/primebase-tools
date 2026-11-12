@@ -4,48 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Freedom Tracker &mdash; Primebase Tools</title>
-  <meta name="description" content="Measure your wealth in time, not just currency. Know how many days of freedom your savings actually buy.">
+  <meta name="description" content="Measure wealth in time. See how long your savings could carry you.">
+  <link rel="icon" href="../assets/img/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
   <div id="site-header"></div>
 
-  <main class="container narrow">
-    <a class="back-link" href="../index.html">&larr; All tools</a>
+  <main>
+    <div class="wrap">
+      <a class="back" href="../index.html">&larr; Tools</a>
 
-    <header class="page-head">
-      <p class="eyebrow">Finance</p>
-      <h1>Freedom Tracker</h1>
-      <p class="lede">Measure your wealth in <em>time</em>, not just currency. Enter your monthly living expenses and your current savings. The tool tells you how many days of freedom you are actually sitting on.</p>
-    </header>
+      <header class="page">
+        <img class="thumb" src="../assets/img/freedom.jpg" alt="" width="768" height="576">
+        <div>
+          <p class="eyebrow">Finance</p>
+          <h1>Freedom Tracker</h1>
+          <p class="lede">How long could your savings carry you?</p>
+        </div>
+      </header>
 
-    <div class="tool-layout">
-      <section class="panel">
-        <h2>The inputs</h2>
-        <div class="field">
-          <span>Monthly living expenses</span>
-          <input id="ft-expenses" type="number" min="0" step="100" placeholder="e.g. 10000">
-        </div>
-        <div class="field">
-          <span>Current savings / liquid wealth</span>
-          <input id="ft-savings" type="number" min="0" step="100" placeholder="e.g. 50000">
-        </div>
-        <button class="btn" id="ft-run" type="button">Calculate freedom</button>
-      </section>
+      <div class="split">
+        <section>
+          <div class="field">
+            <span>Monthly expenses</span>
+            <input id="ft-expenses" type="number" min="0" step="100" placeholder="10000" inputmode="numeric">
+          </div>
+          <div class="field">
+            <span>Savings</span>
+            <input id="ft-savings" type="number" min="0" step="100" placeholder="50000" inputmode="numeric">
+          </div>
+          <button class="btn" id="ft-run" type="button">See my freedom</button>
+        </section>
 
-      <section class="result" id="ft-result">
-        <div class="result-days">
-          <span class="num" id="ft-days">0</span>
-          <span class="lbl">Days of Freedom</span>
-        </div>
-        <ul class="result-rows">
-          <li><span>Monthly living expenses</span><span id="ft-row-expenses">0</span></li>
-          <li><span>Savings / liquid wealth</span><span id="ft-row-savings">0</span></li>
-          <li><span>Months of freedom</span><span id="ft-row-months">0</span></li>
-          <li><span>Est. freedom date</span><span id="ft-row-date">&mdash;</span></li>
-        </ul>
-        <p class="result-note" id="ft-note">Every bit of discipline today adds more freedom to your future.</p>
-      </section>
+        <section id="ft-result" aria-live="polite"></section>
+      </div>
     </div>
   </main>
 
